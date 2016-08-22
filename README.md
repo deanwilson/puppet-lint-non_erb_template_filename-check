@@ -3,6 +3,9 @@
 Extends puppet-lint to ensure all file names used in template functions
 end with the string '.erb'.
 
+[![Build Status](https://travis-ci.org/deanwilson/puppet-lint-non_erb_template_filename-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-non_erb_template_filename-check)
+
+
 This plugin is an extension of our local style guide and may not suit
 your own code base. This sample would trigger the `puppet-lint` warning:
 
