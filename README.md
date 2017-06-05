@@ -1,7 +1,12 @@
 # puppet-lint non ERB template file name check
 
+## DEPRECATED
+
 Extends puppet-lint to ensure all file names used in template functions
 end with the string '.erb'.
+
+This plugin has been replaced by 
+[puppet-lint-template_file_extension-check](https://github.com/deanwilson/puppet-lint-template_file_extension-check) which provides all the functionality this check does and more. You should move over to the new plugin when possible.
 
 [![Build Status](https://travis-ci.org/deanwilson/puppet-lint-non_erb_template_filename-check.svg?branch=master)](https://travis-ci.org/deanwilson/puppet-lint-non_erb_template_filename-check)
 
