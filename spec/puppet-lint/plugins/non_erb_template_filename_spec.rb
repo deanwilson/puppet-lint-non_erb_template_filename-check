@@ -1,18 +1,17 @@
 require 'spec_helper'
 
 describe 'non_erb_template_filename' do
-
   let(:msg) { 'all template file names should end with ".erb"' }
 
   context 'template function with one valid file name' do
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class valid_template_filename {
           file { '/tmp/templated':
             content => template('mymodule/single_file.erb'),
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should not detect any problems' do
@@ -20,16 +19,15 @@ describe 'non_erb_template_filename' do
     end
   end
 
-
   context 'template function with single invalid file name' do
     let(:code) do
-      <<-EOS
+      <<-TEST_CLASS
         class multi_templated_file {
           file { '/tmp/templated':
             content => template('mymodule/first_file.erb', 'mymodule/second_file.conf'),
           }
         }
-      EOS
+      TEST_CLASS
     end
 
     it 'should detect a single problem' do
@@ -40,5 +38,4 @@ describe 'non_erb_template_filename' do
       expect(problems).to contain_warning(msg).on_line(3).in_column(24)
     end
   end
-
 end
